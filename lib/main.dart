@@ -2,110 +2,82 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+//프로젝트를 생성하시고 아래 MyApp class 를 제외하고는 모두 지워주시면 됩니다.
+//MyApp 에서는 home:MyHomePage() 안의 title 만 지워주세요!
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
+// "stful" + enter 를 누르시면 편하게 StatefulWidget 을 작성하실 수 있습니다.
+// 이후 제목을 MyHomePage 라고 작성합니다. 그러면 나머지 부분도 다 같이 이름이 작성됩니다.
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+//아래 build 함수의 return 값을 Scaffold 로 바꿔주세요!.
+// TODO 처음하시는 분들은 여기까지는 공식이라 생각하시고 진행해주시면 되겠습니다.
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text("hello world"),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+      body: Container(
+        // TODO Center 위젯으로 다른 위젯을 감싸게 되면, 감싸진 위젯은 가운데로 오게 됩니다.
+        child: Center(
+          // TODO 일반적으로 위젯 1개당 1개의 위젯을 감쌀 수 있습니다. 이 경우 "child:" 라는 옵션 값에다 해당 위젯을 작성하면 됩니다.
+          // TODO 위젯 1개에 여러 위젯을 감쌀 수 있는 경우가 있는데, 이 경우 "children: <Widget>[]" 이라는 옵션 값의 "[]" 안에 위젯을 "," 로 나열해 주시면 됩니다.
+          // TODO 여러 위젯을 감쌀 수 있는 위젯에는 대표적으로 Stack, Column, Row 가 있습니다.
+          // Stack : 처음 입력 된 것을 화면 제일 밑, 나중에 입력된 것을 화면 제일 위에 배치합니다.
+          // Column : 처음 입력된 것을 위, 나중에 입력된 것을 아래로 배치합니다.
+          // Row : 처음 입력된 것을 왼쪽, 나중에 입력된 것을 오른쪽으로 배치합니다.
+            child:
+            // Button 작성법
+            RaisedButton(onPressed: null,)
+          // Text 작성법
+//            Text("hello")
+          // Icon 작성법
+//            Icon(Icons.cloud)
+          // TODO 주석을 해제하여 Row 를 확인해 보세요
+//            Row(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              children: <Widget>[
+//                Icon(Icons.directions_run),
+//                Icon(Icons.directions_run),
+//                Icon(Icons.directions_run),
+//              ],
+//            ),
+          // TODO 주석을 해제하여 Column 를 확인해 보세요
+//            Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              children: <Widget>[
+//                Icon(Icons.directions_run),
+//                Icon(Icons.directions_run),
+//                Icon(Icons.directions_run),
+//              ],
+//,            )
+          // TODO 주석을 해제하여 Stack 를 확인해 보세요
+//            Stack(
+//              children: <Widget>[
+//                Icon(Icons.cloud, size: 100, color: Colors.red,),
+//                Icon(Icons.cloud, size: 80, color: Colors.blue,),
+//                Icon(Icons.cloud, size: 60, color: Colors.yellow,),
+//              ],
+//            )
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: FloatingActionButton(onPressed: (){}),
     );
   }
 }
